@@ -35,8 +35,33 @@ void loop() {
         String text = getData();
         int steps= text.toInt();
         Serial.println(steps);
-        myStepperY.step(steps, FORWARD, MICROSTEP);  
-      }      
+        myStepperX.step(steps, FORWARD, SINGLE);
+         myStepperX.release();  
+      }
+      else if(commandString.equals("S1B"))
+      {
+        String text = getData();
+        int steps= text.toInt();
+        Serial.println(steps);
+        myStepperX.step(steps, BACKWARD, SINGLE);
+        myStepperX.release();  
+      }
+      else if(commandString.equals("S2F"))
+      {
+        String text = getData();
+        int steps= text.toInt();
+        Serial.println(steps);
+        myStepperY.step(steps, FORWARD, SINGLE);
+        myStepperY.release();  
+      } 
+      else if(commandString.equals("S2B"))
+      {
+        String text = getData();
+        int steps= text.toInt();
+        Serial.println(steps);
+        myStepperY.step(steps, BACKWARD, SINGLE);
+        myStepperY.release();  
+      }           
      
     inputString = "";
   }
